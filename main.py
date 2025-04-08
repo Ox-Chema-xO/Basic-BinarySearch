@@ -20,22 +20,29 @@ def binary_search(arr, target):
     # El elemento no está presente
     return -1
 
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        swap = False
+        for j in range(n-i-1): 
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                swap = True
+        if not swap:
+            break
+    return arr
+    
 def main():
     print("Hi, this is a implementation of binary search")
-    
-    # Ejemplo con una lista ordenada
-    sorted_list = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]
+    arr = [24,6,12,9,14,1,20,7]
+    x = 9 #elemento a buscar
+    sorted_list = bubble_sort(arr) 
     print(f"Lista ordenada: {sorted_list}")
+    result = binary_search(sorted_list, x)
+    if result != -1:
+        print(f"El elemento {x} está en el índice {result}")
+    else:
+        print(f"El elemento {x} no está en la lista")
     
-    # Buscar varios elementos
-    test_cases = [16, 72, 42]
-    
-    for target in test_cases:
-        result = binary_search(sorted_list, target)
-        if result != -1:
-            print(f"El elemento {target} está en el índice {result}")
-        else:
-            print(f"El elemento {target} no está en la lista")
-
 if __name__ == "__main__":
     main()
