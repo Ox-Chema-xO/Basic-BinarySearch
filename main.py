@@ -1,3 +1,5 @@
+import time
+
 def binary_search(arr, target):
     left = 0
     right = len(arr) - 1
@@ -36,13 +38,17 @@ def main():
     print("Hi, this is a implementation of binary search")
     arr = [24,6,12,9,14,1,20,7]
     x = 9 #elemento a buscar
+    start_time = time.time()
     sorted_list = bubble_sort(arr) 
     print(f"Lista ordenada: {sorted_list}")
     result = binary_search(sorted_list, x)
+    end_time = time.time()
+    execution_time = (end_time - start_time)*1000 #convertimos a milisegundos
     if result != -1:
         print(f"El elemento {x} está en el índice {result}")
     else:
         print(f"El elemento {x} no está en la lista")
+    print(f"Tiempo de ejecución: {execution_time:.4f} milisegundos")
     
 if __name__ == "__main__":
     main()
